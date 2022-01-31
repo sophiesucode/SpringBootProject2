@@ -1,4 +1,4 @@
-package com.realestateapp.realestateapp;
+package com.realestateapp.realestate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.realestateapp.realestateapp;
+package com.realestateapp.realestate;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
