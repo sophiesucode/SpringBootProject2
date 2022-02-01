@@ -62,11 +62,27 @@ public class RealEstateProperties {
 
     //FK will be company id and agent id
 
-   
 
-
-
-
-
-
+    @Override
+    public String toString() {
+        return "RealEstateProperties{" +
+                "id=" + id +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", zipcode=" + zipcode +
+                ", state='" + state + '\'' +
+                ", neighborhood='" + neighborhood + '\'' +
+                ", property_type='" + property_type + '\'' +
+                ", description='" + description + '\'' +
+                ", property_size=" + property_size +
+                ", list_date='" + list_date + '\'' +
+                ", num_bedrooms=" + num_bedrooms +
+                ", num_bathrooms=" + num_bathrooms +
+                ", hasPool=" + hasPool +
+                ", hasBasement=" + hasBasement +
+                ", hasBackyard=" + hasBackyard +
+                ", hasGarage=" + hasGarage +
+                ", property_status='" + property_status + '\'' +
+                '}';
+    }
 }
