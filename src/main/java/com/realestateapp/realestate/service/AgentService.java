@@ -1,4 +1,4 @@
 package com.realestateapp.realestate.service;
 
-public class RealEstateService {
+public class AgentService {
 }
