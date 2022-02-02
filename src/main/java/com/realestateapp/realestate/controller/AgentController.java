@@ -1,13 +1,10 @@
 package com.realestateapp.realestate.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/api")
-public class RealEstateController {
+public class AgentController {
 
     @GetMapping(path = "/hello-world/")
     public String getHelloWorld() {
@@ -25,6 +22,12 @@ public class RealEstateController {
     public String getAgents(@PathVariable Long id){
         return "getting agent with id: " + id;
     }
+
+    @PostMapping("/agents/")
+    public String createAgent(@RequestBody String body){
+        return "creating new agent " + body;
+    }
+    
 //    private CategoryService categoryService;
 //
 //    @Autowired
@@ -39,3 +42,7 @@ public class RealEstateController {
 //    }
 
 }
+//    @PostMapping("/categories/")
+//    public String createCategory(@RequestBody String body) {
+//        return "creating a category " + body;
+//    }
