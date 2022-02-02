@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="agents")
-public class RealEstateAgent {
+public class Agent {
 
     @Id
     @Column
@@ -16,10 +16,11 @@ public class RealEstateAgent {
 
 
     //add email address ?
+    //
 
-    //foreign key will be company id
+    //foreign key will be company id/office id(which office are they in)
 
-   public RealEstateAgent(){
+   public Agent(){
 
    }
 
@@ -31,7 +32,7 @@ public class RealEstateAgent {
                 '}';
     }
 
-    public RealEstateAgent(Long id, String name) {
+    public Agent(Long id, String name) {
         this.id = id;
         this.name = name;
     }
