@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name= "real_estate_company")
-public class RealEstateCompany {
+public class RealEstateOffice {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +22,11 @@ public class RealEstateCompany {
     @Column
     private String email;
 
-    public RealEstateCompany(){
+    public RealEstateOffice(){
 
     }
 
-    public RealEstateCompany(Long id, String name, String address, String phone, String email) {
+    public RealEstateOffice(Long id, String name, String address, String phone, String email) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -36,7 +36,7 @@ public class RealEstateCompany {
 
     @Override
     public String toString() {
-        return "RealEstateCompany{" +
+        return "RealEstateOffice{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
