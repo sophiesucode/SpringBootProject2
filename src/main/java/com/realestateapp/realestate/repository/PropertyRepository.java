@@ -4,8 +4,10 @@ import com.realestateapp.realestate.model.Properties;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PropertyRepository extends JpaRepository<Properties, Long> {
-
+    Properties findById(int id);
     Properties findByCity(String city);
+
+    Properties findByStreet(String street);
 
 //    Properties findPropertiesByProperty_type(String property_type); whats wrong with this line?
 
