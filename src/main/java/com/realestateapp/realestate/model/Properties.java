@@ -60,7 +60,7 @@ public class RealEstateProperties {
     @Column
     private String property_status;
 
-    //FK will be company id and agent id
+    //FK will be company/office id and agent id
 
 
     @Override
