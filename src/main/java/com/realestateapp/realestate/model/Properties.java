@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "real_estate_properties")
-public class RealEstateProperties {
+public class Properties {
 
     @Id
     @Column
@@ -60,7 +60,9 @@ public class RealEstateProperties {
     @Column
     private String property_status;
 
-    //FK will be company/office id and agent id
+//    @Column
+//     private Long agentId; //FK will be company/office id and agent id
+    //@Column Integer officeId
 
 
     @Override

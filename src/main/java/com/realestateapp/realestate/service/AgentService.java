@@ -3,6 +3,7 @@ package com.realestateapp.realestate.service;
 import com.realestateapp.realestate.exceptions.InformationExistException;
 import com.realestateapp.realestate.exceptions.InformationNotFoundException;
 import com.realestateapp.realestate.model.Agent;
+import com.realestateapp.realestate.model.Properties;
 import com.realestateapp.realestate.repository.AgentRepository;
 import com.realestateapp.realestate.repository.PropertyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +23,13 @@ public class AgentService {
     }
 
 
-//    public AgentRepository getAgentRepository() {//is this necessary? why ?
-//        return agentRepository;
-//    }
 
-    private PropertyRepository propertyRepository;
 
-    @Autowired
-    public void setPropertyRepository(PropertyRepository propertyRepository){
-        this.propertyRepository = propertyRepository;
+   private PropertyRepository propertyRepository;
+
+   @Autowired
+   public void setPropertyRepository(PropertyRepository propertyRepository){
+       this.propertyRepository = propertyRepository;
     }
 
     public List<Agent> getAllAgents(){
@@ -67,6 +66,44 @@ public class AgentService {
         }else {
             throw new InformationNotFoundException("agent with id " + agentId + " not found");
         }
+    }
+
+    public Optional<Agent> deleteAgent(Long agentId){
+
+        Optional<Agent> agent = agentRepository.findById(agentId);
+        if(agent.isPresent()){
+            agentRepository.deleteById(agentId);
+            return agent;
+
+        }else {
+            throw new InformationNotFoundException("agent with id " + agentId +" not found");
+        }
+    }
+//////////////////////////////////////   Section for properties ///////////////////////////////////////////////
+
+    public List<Properties> getAllProperties(){
+        return propertyRepository.findAll();
+    }
+
+
+    public Properties createProperty(Properties propertiesObject){
+
+       Properties properties = propertyRepository.findByStreet(propertiesObject.getStreet());
+        if(properties !=null){
+            throw new InformationExistException(("Property located at " + properties.getStreet() + " already exists"));
+        }else {
+            return propertyRepository.save(propertiesObject);
+        }
+    }
+
+    public Optional<Properties> getProperties(Long propertiesId) {
+
+       Optional<Properties> properties = propertyRepository.findById(propertiesId);
+       if(properties.isPresent()){
+           return properties;
+       }else{
+           throw new InformationNotFoundException("property with Id " + propertiesId + " not found");
+       }
     }
 }
 
