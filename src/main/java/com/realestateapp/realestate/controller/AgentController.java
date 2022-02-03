@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -30,9 +31,12 @@ public class AgentController {
 
 
      @GetMapping("/agents/{agentId}")
-    public String getAgents(@PathVariable Long id){
-        return "getting agent with id: " + id;
+    public Optional getAgents(@PathVariable Long agentId){
+        System.out.println(("calling getAgent ==>"));
+        return agentService.getAgent(agentId);
     }
+
+
 
     @PostMapping("/agents/")
     public String createAgent(@RequestBody String body){
