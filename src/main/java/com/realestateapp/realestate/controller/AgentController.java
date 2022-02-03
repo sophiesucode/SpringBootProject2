@@ -1,10 +1,20 @@
 package com.realestateapp.realestate.controller;
 
+import com.realestateapp.realestate.model.Agent;
+import com.realestateapp.realestate.service.AgentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api")
 public class AgentController {
+
+    private AgentService agentService;
+
+    @Autowired
+    public void setAgentService(AgentService agentService){this.agentService = agentService;}
 
     @GetMapping(path = "/hello-world/")
     public String getHelloWorld() {
@@ -12,9 +22,10 @@ public class AgentController {
     }
 
     @GetMapping(path = "/agents/")
-            public String getAgents() {
-            return "get all agents";
-            }
+            public List<Agent> getAgents(){
+        System.out.println("calling getAgents ==>");
+        return agentService.getAllAgents();
+    }
 
 
 
