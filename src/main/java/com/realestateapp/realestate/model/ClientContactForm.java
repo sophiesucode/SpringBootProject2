@@ -1,2 +1,4 @@
-package com.realestateapp.realestate.model;public class ClientContactForm {
+package com.realestateapp.realestate.model;
+
+public class ClientContactForm {
 }
