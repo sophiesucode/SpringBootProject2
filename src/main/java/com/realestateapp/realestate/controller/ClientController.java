@@ -5,11 +5,10 @@ import com.realestateapp.realestate.model.Client;
 import com.realestateapp.realestate.service.AgentService;
 import com.realestateapp.realestate.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path="/api")
@@ -26,4 +25,21 @@ public class ClientController {
         return clientService.getAllClients();
     }
 
+    @GetMapping("/clients/{clientId}")
+    public Optional getClients(@PathVariable Long clientId){
+      System.out.println(("calling getClient ==>"));
+       return clientService.getClient(clientId);
+   }
+
+    @PostMapping("/clients/")
+    public Client createClient(@RequestBody Client clientObject){
+        System.out.println("calling createClient ==>");
+        return clientService.createClient(clientObject);
+    }
+
+    @PutMapping("/clients/{clientId}")
+    public Client updateClient(@PathVariable(value = "clientId") Long clientId, @RequestBody Client clientOject) {
+        System.out.println("calling updateclient ==>");
+        return clientService.updateClient(clientId, clientOject);
+    }
 }
