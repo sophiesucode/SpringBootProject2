@@ -1,8 +1,8 @@
 package com.realestateapp.realestate.controller;
 
-import com.realestateapp.realestate.model.Agent;
+
 import com.realestateapp.realestate.model.Client;
-import com.realestateapp.realestate.service.AgentService;
+
 import com.realestateapp.realestate.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
