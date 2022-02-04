@@ -66,15 +66,7 @@ public class Properties {
     @ManyToOne
     @JoinColumn(name = "agent_id")
     private Agent agent;
-
-//    @JsonIgnore
-//    @OneToMany
-//    @JoinColumn(name = "property_id")
-//    private Properties propertiees;
-
-//    @Column
-//     private Long agentId; //FK will be company/office id and agent id
-    //@Column Integer officeId
+    
 
 
     @Override
