@@ -5,10 +5,12 @@ import com.realestateapp.realestate.exceptions.InformationNotFoundException;
 import com.realestateapp.realestate.model.Client;
 import com.realestateapp.realestate.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ClientService {
 
     private ClientRepository clientRepository;
