@@ -2,7 +2,6 @@ package com.realestateapp.realestate.service;
 
 
 import com.realestateapp.realestate.exceptions.InformationNotFoundException;
-import com.realestateapp.realestate.model.Agent;
 import com.realestateapp.realestate.model.Client;
 import com.realestateapp.realestate.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
