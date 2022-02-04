@@ -1,6 +1,11 @@
 package com.realestateapp.realestate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="agents")
@@ -13,6 +18,20 @@ public class Agent {
 
     @Column
     private String name;
+
+    @OneToMany(mappedBy = "agent", orphanRemoval = true)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Properties> properties;
+
+
+
+
+//    @Column
+//    private String home_phone;
+//
+//    @Column
+//    private String email;
+
 
 
     //add email address ?
