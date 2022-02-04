@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="clients")
-public class ClientContactForm {
+public class Client {
 
     @Id
     @Column
@@ -24,7 +24,7 @@ public class ClientContactForm {
     @Column
     private String message;
 
-    public ClientContactForm(){
+    public Client(){
 
     }
 
