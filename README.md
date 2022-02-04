@@ -33,6 +33,15 @@ This projects is a Real estate management application to help Brokers/ And real 
 
 - Miro
 
+#MVC Details
+----------------
+- 4 models 
+- 3 service layers
+- 3 repositories
+- 3 controllers
+
+
+
 
 
 
