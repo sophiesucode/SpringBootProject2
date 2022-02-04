@@ -105,5 +105,16 @@ public class AgentService {
            throw new InformationNotFoundException("property with Id " + propertiesId + " not found");
        }
     }
-}
 
+    public Properties updateProperties(Long propertiesId, Properties propertiesObject){
+
+       Optional<Properties> properties = propertyRepository.findById(propertiesId);
+       if(properties.isPresent()){
+           Properties updateProperties = propertyRepository.findById(propertiesId).get();
+           updateProperties.setProperty_type(propertiesObject.getProperty_type());
+           return propertyRepository.save(updateProperties);
+       }else{
+           throw new InformationNotFoundException("property with id " + propertiesId + " not found");
+       }
+    }
+}
