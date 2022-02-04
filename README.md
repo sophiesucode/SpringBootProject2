@@ -1,5 +1,7 @@
 # SpringBoot Real Estate Service
 
+<img src="images/real estate picture.JPG">
+
 #Purpose
 ----------------------------------------------------------------------------
 
@@ -39,12 +41,12 @@ This projects is a Real estate management application to help Brokers/ And real 
 ------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------
 1.) I began by creating a ER diagram on Lucid Chart
-(insert)
 
+<img src="images/erdproject.JPG">
 
 
 2.)I made an architecture of the application on Miro app
-(insert)
+<img src="images/miroarch.JPG">
 
 
 
@@ -52,6 +54,10 @@ This projects is a Real estate management application to help Brokers/ And real 
 #User Stories
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
+
+<img src="images/userTasks.JPG">
+
+
 - As a user, I want to be able to add new properties to our system, so that potential clients can view them on our website.
 
 - As a user, I want to be able to update or delete properties.
