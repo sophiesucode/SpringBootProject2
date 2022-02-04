@@ -66,7 +66,7 @@ public class Properties {
     @ManyToOne
     @JoinColumn(name = "agent_id")
     private Agent agent;
-    
+
 
 
     @Override
