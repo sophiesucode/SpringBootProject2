@@ -89,6 +89,7 @@ public class AgentService {
     public Properties createProperty(Properties propertiesObject){
 
        Properties properties = propertyRepository.findByStreet(propertiesObject.getStreet());
+
         if(properties !=null){
             throw new InformationExistException(("Property located at " + properties.getStreet() + " already exists"));
         }else {
@@ -112,6 +113,12 @@ public class AgentService {
        if(properties.isPresent()){
            Properties updateProperties = propertyRepository.findById(propertiesId).get();
            updateProperties.setProperty_type(propertiesObject.getProperty_type());
+         updateProperties.setStreet(propertiesObject.getStreet());
+         updateProperties.setCity(propertiesObject.getCity());
+         updateProperties.setState(propertiesObject.getState());
+         updateProperties.setZipcode(propertiesObject.getZipcode());
+         updateProperties.setProperty_status(propertiesObject.getProperty_status());
+         updateProperties.setId(propertiesObject.getId());
            return propertyRepository.save(updateProperties);
        }else{
            throw new InformationNotFoundException("property with id " + propertiesId + " not found");
