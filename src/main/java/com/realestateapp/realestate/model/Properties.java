@@ -1,5 +1,7 @@
 package com.realestateapp.realestate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -59,6 +61,16 @@ public class Properties {
 
     @Column
     private String property_status;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "agent_id")
+    private Agent agent;
+
+//    @JsonIgnore
+//    @OneToMany
+//    @JoinColumn(name = "property_id")
+//    private Properties propertiees;
 
 //    @Column
 //     private Long agentId; //FK will be company/office id and agent id
