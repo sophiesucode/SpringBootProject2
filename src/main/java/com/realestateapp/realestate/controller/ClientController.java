@@ -42,4 +42,10 @@ public class ClientController {
         System.out.println("calling updateclient ==>");
         return clientService.updateClient(clientId, clientOject);
     }
+
+    @DeleteMapping("/clients/{clientId}")
+    public Optional<Client> deleteClient(@PathVariable(value = "clientId") Long clientId) {
+        System.out.println("calling deleteClient ==>");
+        return clientService.deleteClient(clientId);
+    }
 }
