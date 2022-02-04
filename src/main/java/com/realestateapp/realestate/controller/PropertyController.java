@@ -49,17 +49,19 @@ public class PropertyController {
        return propertyService.updateProperties(propertiesId, propertiesObject);
     }
 
+    @DeleteMapping("/properties/{propertiesId}")
+   public Optional<Properties> deleteProperties(@PathVariable(value = "propertiesId") Long propertiesId) {
+        System.out.println("calling deleteProperties ==>");
+        return propertyService.deleteProperties(propertiesId);
+    }
+
     public PropertyService getPropertyService() {
         return propertyService;
     }
 
 
 }
-//    @PutMapping("/properties/{propertiesId}")
-//    public Properties updateProperty(@PathVariable(value = "propertiesId") Long propertiesId, @RequestBody Properties propertiesObject) {
-//        System.out.println("calling updateProperty ==>");
-//        return propertyService.updateProperty(propertiesId, propertiesObject);
-//    }
+
 
 
 
