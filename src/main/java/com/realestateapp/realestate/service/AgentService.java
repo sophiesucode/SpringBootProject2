@@ -124,4 +124,17 @@ public class AgentService {
            throw new InformationNotFoundException("property with id " + propertiesId + " not found");
        }
     }
+
+    public Optional<Properties> deleteProperties(Long propertiesId){
+
+       Optional<Properties> properties = propertyRepository.findById(propertiesId);
+       if(properties.isPresent()){
+           propertyRepository.deleteById(propertiesId);
+           return properties;
+
+       }else{
+           throw new InformationNotFoundException("property with id " + propertiesId +" not found");
+       }
+    }
 }
+
