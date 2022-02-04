@@ -85,3 +85,4 @@ public class RealEstateOffice {
         this.email = email;
     }
 }
+//associate propertyid table with officeid?
