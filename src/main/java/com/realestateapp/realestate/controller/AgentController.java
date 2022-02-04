@@ -39,17 +39,25 @@ public class AgentController {
 
 
     @PostMapping("/agents/")
-    public String createAgent(@RequestBody String body){
-        return "creating new agent " + body;
+    public Agent createAgent(@RequestBody Agent agentObject){
+       System.out.println("calling createAgent ==>");
+       return agentService.createAgent(agentObject);
     }
 
+
+
     @PutMapping("/agents/{agentId}")
-    public String updateAgent(@PathVariable(value = "agentId") Long agentId, @RequestBody String body) {
-        return "updating the agent with the id  " + agentId + body;
+    public Agent updateAgent(@PathVariable(value = "agentId") Long agentId, @RequestBody Agent agentObject) {
+       System.out.println("calling updateAgent ==>");
+       return agentService.updateAgent(agentId, agentObject);
     }
+
+
+
     @DeleteMapping("/agents/{agentId}")
-    public String deleteAgent(@PathVariable(value = "agentId") Long agentId) {
-        return "deleting agent with id of " + agentId;
+    public Optional<Agent> deleteAgent(@PathVariable(value = "agentId") Long agentId) {
+        System.out.println("calling deleteAgent ==>");
+        return agentService.deleteAgent(agentId);
     }
 
 
