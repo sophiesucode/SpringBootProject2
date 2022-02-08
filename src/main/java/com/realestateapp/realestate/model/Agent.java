@@ -5,6 +5,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -21,8 +22,8 @@ public class Agent {
 
     @OneToMany(mappedBy = "agent", orphanRemoval = true)
     @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Properties> properties;
-
+    private List<Properties> propertiesList;
+    //    private List<Properties> properties;
 
 
 
@@ -42,6 +43,7 @@ public class Agent {
    public Agent(){
 
    }
+
 
     @Override
     public String toString() {
@@ -71,4 +73,11 @@ public class Agent {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Properties> getPropertiesList() {
+       return propertiesList;
+    }
+   public void setPropertiesList(List<Properties> propertiesList) {
+       this.propertiesList = propertiesList;
+   }
 }

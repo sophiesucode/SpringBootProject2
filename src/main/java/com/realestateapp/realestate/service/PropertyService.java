@@ -54,22 +54,30 @@ public class PropertyService {
         Optional<Properties> properties = propertyRepository.findById(propertiesId);
         if(properties.isPresent()){
             Properties updateProperties = propertyRepository.findById(propertiesId).get();
-            updateProperties.setProperty_type(propertiesObject.getProperty_type());
             updateProperties.setStreet(propertiesObject.getStreet());
             updateProperties.setCity(propertiesObject.getCity());
-            updateProperties.setState(propertiesObject.getState());
             updateProperties.setZipcode(propertiesObject.getZipcode());
-            updateProperties.setProperty_status(propertiesObject.getProperty_status());
+            updateProperties.setState(propertiesObject.getState());
+            updateProperties.setNeighborhood(propertiesObject.getNeighborhood());
+            updateProperties.setProperty_type(propertiesObject.getProperty_type());
             updateProperties.setDescription(propertiesObject.getDescription());
+            updateProperties.setProperty_size(propertiesObject.getProperty_size());
+            updateProperties.setList_date(propertiesObject.getList_date());
+            updateProperties.setNum_bedrooms(propertiesObject.getNum_bedrooms());
+            updateProperties.setNum_bathrooms(propertiesObject.getNum_bathrooms());
+            updateProperties.setHasPool(propertiesObject.getHasPool());
+            updateProperties.setHasBasement(propertiesObject.getHasBasement());
             updateProperties.setHasBackyard(propertiesObject.getHasBackyard());
             updateProperties.setHasGarage(propertiesObject.getHasGarage());
-            updateProperties.setHasPool(propertiesObject.getHasPool());
-            updateProperties.setList_date(propertiesObject.getList_date());
-            updateProperties.setNum_bathrooms(propertiesObject.getNum_bathrooms());
-            updateProperties.setNum_bedrooms(propertiesObject.getNum_bedrooms());
-            updateProperties.setProperty_size(propertiesObject.getProperty_size());
-            updateProperties.setId(propertiesObject.getId());
-            updateProperties.setAgent(propertiesObject.getAgent());
+            updateProperties.setProperty_status(propertiesObject.getProperty_status());
+                //be able to set agent/assign agent
+
+//
+//
+
+//
+//            updateProperties.setId(propertiesObject.getId());
+//            updateProperties.setAgent(propertiesObject.getAgent());
             return propertyRepository.save(updateProperties);
         }else{
             throw new InformationNotFoundException("property with id " + propertiesId + " not found");

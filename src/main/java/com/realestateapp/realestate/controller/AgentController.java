@@ -1,6 +1,7 @@
 package com.realestateapp.realestate.controller;
 
 import com.realestateapp.realestate.model.Agent;
+import com.realestateapp.realestate.model.Properties;
 import com.realestateapp.realestate.service.AgentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -60,5 +61,23 @@ public class AgentController {
         return agentService.deleteAgent(agentId);
     }
 
+    @PostMapping("/agent/{agentId}/properties/")
+    public Properties createAgentProperties(@PathVariable(value = "agentId") Long agentId, @RequestBody Properties propertiesObject) {
+        System.out.println("calling createAgentProperties===>");
+        return agentService.createAgentProperties(agentId, propertiesObject);
+    }
+
+   @GetMapping("/agent/{agentId}/properties/")
+    public List<Properties> getAgentProperties(@PathVariable(value = "agentId") Long agentId){
+        return agentService.getAgentProperties(agentId);
+    }
+
+//    @GetMapping("/agent/{agentId}/properties/{propertiesId}")
+//    public Properties getAgentRecipe(
+//            @PathVariable(value = "agentId") Long agentId, @PathVariable(value = "propertiesId") Long propertiesId) {
+//        System.out.println("calling getAgentProperties ==>");
+//        return agentService.getAgentProperties(agentId, propertiesId );
+//    }
 
 }
+
