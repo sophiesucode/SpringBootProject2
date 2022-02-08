@@ -2,6 +2,7 @@ package com.realestateapp.realestate.service;
 
 import com.realestateapp.realestate.exceptions.InformationExistException;
 import com.realestateapp.realestate.exceptions.InformationNotFoundException;
+import com.realestateapp.realestate.model.Agent;
 import com.realestateapp.realestate.model.Properties;
 import com.realestateapp.realestate.repository.PropertyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +60,16 @@ public class PropertyService {
             updateProperties.setState(propertiesObject.getState());
             updateProperties.setZipcode(propertiesObject.getZipcode());
             updateProperties.setProperty_status(propertiesObject.getProperty_status());
+            updateProperties.setDescription(propertiesObject.getDescription());
+            updateProperties.setHasBackyard(propertiesObject.getHasBackyard());
+            updateProperties.setHasGarage(propertiesObject.getHasGarage());
+            updateProperties.setHasPool(propertiesObject.getHasPool());
+            updateProperties.setList_date(propertiesObject.getList_date());
+            updateProperties.setNum_bathrooms(propertiesObject.getNum_bathrooms());
+            updateProperties.setNum_bedrooms(propertiesObject.getNum_bedrooms());
+            updateProperties.setProperty_size(propertiesObject.getProperty_size());
             updateProperties.setId(propertiesObject.getId());
+            updateProperties.setAgent(propertiesObject.getAgent());
             return propertyRepository.save(updateProperties);
         }else{
             throw new InformationNotFoundException("property with id " + propertiesId + " not found");
@@ -77,4 +87,6 @@ public class PropertyService {
             throw new InformationNotFoundException("property with id " + propertiesId +" not found");
         }
     }
+
+
 }
