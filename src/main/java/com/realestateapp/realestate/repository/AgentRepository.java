@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AgentRepository extends JpaRepository <Agent , Long> {
 
-//     Agent findById(agentId);
-//     Agent findAgentsById( Long agentId) ;
+//    Agent findById(agentId);
+//     Agent findAgentById( Long agentId) ;
 
 Agent findAgentsByName(String name);
 

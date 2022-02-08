@@ -227,4 +227,11 @@ public class Properties {
     public void setProperty_status(String property_status) {
         this.property_status = property_status;
     }
+
+    public Agent getAgent() {
+        return agent;
+    }
+
+    public void setAgent(Agent agent) {this.agent= agent;
+    }
 }
