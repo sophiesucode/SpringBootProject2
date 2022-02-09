@@ -9,6 +9,10 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
 
     Properties findByStreet(String street);
 
+    Properties getPropertiesByIdAndAgent_Id(Long propertiesId , Long agentId);
+
+//    Properties findPropertiesByIdAndAgent();
+
 //    Properties findPropertiesByProperty_type(String property_type); whats wrong with this line?
 
 //    Properties findPropertiesByProperty_status(String status); whats wrong with this line?

@@ -67,7 +67,10 @@ public class Properties {
     @JoinColumn(name = "agent_id")
     private Agent agent;
 
-
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "office_id")
+    private RealEstateOffice realEstateOffice;
 
     @Override
     public String toString() {
@@ -233,5 +236,13 @@ public class Properties {
     }
 
     public void setAgent(Agent agent) {this.agent= agent;
+    }
+
+    public RealEstateOffice getRealEstateOffice() {
+        return realEstateOffice;
+    }
+
+    public void setRealEstateOffice(RealEstateOffice realEstateOffice) {
+        this.realEstateOffice = realEstateOffice;
     }
 }

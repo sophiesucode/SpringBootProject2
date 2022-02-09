@@ -24,14 +24,14 @@ public class AgentController {
     }
 
     @GetMapping(path = "/agents/")
-            public List<Agent> getAgents(){
+    public List<Agent> getAgents(){
         System.out.println("calling getAgents ==>");
         return agentService.getAllAgents();
     }
 
 
 
-     @GetMapping("/agents/{agentId}")
+    @GetMapping("/agents/{agentId}")
     public Optional getAgents(@PathVariable Long agentId){
         System.out.println(("calling getAgent ==>"));
         return agentService.getAgent(agentId);
@@ -41,16 +41,16 @@ public class AgentController {
 
     @PostMapping("/agents/")
     public Agent createAgent(@RequestBody Agent agentObject){
-       System.out.println("calling createAgent ==>");
-       return agentService.createAgent(agentObject);
+        System.out.println("calling createAgent ==>");
+        return agentService.createAgent(agentObject);
     }
 
 
 
     @PutMapping("/agents/{agentId}")
     public Agent updateAgent(@PathVariable(value = "agentId") Long agentId, @RequestBody Agent agentObject) {
-       System.out.println("calling updateAgent ==>");
-       return agentService.updateAgent(agentId, agentObject);
+        System.out.println("calling updateAgent ==>");
+        return agentService.updateAgent(agentId, agentObject);
     }
 
 
@@ -67,7 +67,7 @@ public class AgentController {
         return agentService.createAgentProperties(agentId, propertiesObject);
     }
 
-   @GetMapping("/agent/{agentId}/properties/")
+    @GetMapping("/agent/{agentId}/properties/")
     public List<Properties> getAgentProperties(@PathVariable(value = "agentId") Long agentId){
         return agentService.getAgentProperties(agentId);
     }
@@ -78,6 +78,19 @@ public class AgentController {
 //        System.out.println("calling getAgentProperties ==>");
 //        return agentService.getAgentProperties(agentId, propertiesId );
 //    }
-
+@GetMapping("/agent/{agentId}/properties/{propertiesId}")
+public Properties getPropertiesById(@PathVariable Long agentId, @PathVariable Long propertiesId) {
+    System.out.println("calling getPropertiesById");
+    return agentService.getPropertiesById(agentId, propertiesId);// or propertyService
 }
 
+//@PutMapping("/agent/{agentId}/properties/{propertiesId}")
+
+//
+//@DeleteMapping("/agent/{agentId}/properties/{propertiesId}")
+//public Properties deleteAgentProperties(@PathVariable Long agentId, @PathVariable Long propertiesId) {
+//    System.out.println("calling deleteAgentProperties");
+//    return agentService.deleteAgentProperties(agentId, propertiesId);
+//}
+
+}

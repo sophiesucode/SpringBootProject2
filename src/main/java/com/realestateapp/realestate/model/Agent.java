@@ -40,9 +40,9 @@ public class Agent {
 
     //foreign key will be company id/office id(which office are they in)
 
-   public Agent(){
+    public Agent(){
 
-   }
+    }
 
 
     @Override
@@ -75,9 +75,9 @@ public class Agent {
     }
 
     public List<Properties> getPropertiesList() {
-       return propertiesList;
+        return propertiesList;
     }
-   public void setPropertiesList(List<Properties> propertiesList) {
-       this.propertiesList = propertiesList;
-   }
+    public void setPropertiesList(List<Properties> propertiesList) {
+        this.propertiesList = propertiesList;
+    }
 }
