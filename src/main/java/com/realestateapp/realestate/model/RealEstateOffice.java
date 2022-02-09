@@ -1,6 +1,10 @@
 package com.realestateapp.realestate.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name= "real_estate_company")
@@ -83,6 +87,19 @@ public class RealEstateOffice {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+
+    @OneToMany(mappedBy = "realEstateOffice", orphanRemoval = true)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Properties> propertiesList;
+
+    public List<Properties> getPropertiesList() {
+        return propertiesList;
+    }
+
+    public void setPropertiesList(List<Properties> propertiesList) {
+        this.propertiesList = propertiesList;
     }
 }
 //associate propertyid table with officeid?
