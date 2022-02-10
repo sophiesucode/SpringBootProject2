@@ -86,6 +86,33 @@ repository interface for the real estate office itself.
 
 - As a user, I want my potential clients to be able to search for properties by type, zip, neighborhood etc.
 
+# Installation and Dependencies.
+--------------------------------------------
+I installed spring boot starter web dependencies in pom.xml
+I also created a database called realestate in postgreSQL and connected it to spring boot by installing a starter package in pom.xml :
+          <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+           </dependency>
+I also added data source specifications in application-dev.properties to connect the database in PostgreSql.
+ <img src="">
+
+
+
+#API End points used:
+-----------------------------------------
+
+There were a total of 24 API endpoints created in this project. 
+<img src="">
+
+
+#Challenges and Wins:
+-------------------------------------------
+I wanted to be able to unassign a property that was assigned to an agent. Initially, the first method I wrote to do, so was actually
+making it so that the property was deleted permanently from the agent and from the table of properties. I wanted to only delete the property
+from the agent table but still have it exist in the property table. This would be an important feature in the case that an agent is taking vacation time or is taking maternity leave, for example. In a situation like that it would be necessary to unassign the property, to be able to assign it to another agent if needed. I saught assistance with this issue. The code was refactored an was finally able to remove the agent id from the property table but the property was still showing in the agent's data. In the end the solution was to use .remove instead of .delete then andthen using  property.setAgent(null) to unassign the property from the agent. The end result was being able to remove properties from agents but not have them permanently deleted.
+
 
 
 
