@@ -72,25 +72,18 @@ public class AgentController {
         return agentService.getAgentProperties(agentId);
     }
 
-//    @GetMapping("/agent/{agentId}/properties/{propertiesId}")
-//    public Properties getAgentRecipe(
-//            @PathVariable(value = "agentId") Long agentId, @PathVariable(value = "propertiesId") Long propertiesId) {
-//        System.out.println("calling getAgentProperties ==>");
-//        return agentService.getAgentProperties(agentId, propertiesId );
-//    }
+
 @GetMapping("/agent/{agentId}/properties/{propertiesId}")
 public Properties getPropertiesById(@PathVariable Long agentId, @PathVariable Long propertiesId) {
     System.out.println("calling getPropertiesById");
     return agentService.getPropertiesById(agentId, propertiesId);// or propertyService
 }
 
-//@PutMapping("/agent/{agentId}/properties/{propertiesId}")
+//@PutMapping("/agent/{agentId}/properties/{propertiesId}") maybe
 
-//
-//@DeleteMapping("/agent/{agentId}/properties/{propertiesId}")
-//public Properties deleteAgentProperties(@PathVariable Long agentId, @PathVariable Long propertiesId) {
-//    System.out.println("calling deleteAgentProperties");
-//    return agentService.deleteAgentProperties(agentId, propertiesId);
-//}
 
+@DeleteMapping("/agent/{agentId}/properties/{propertiesId}/")
+public Properties deleteAgentProperties(@PathVariable(value = "agentId") Long agentId, @PathVariable(value = "propertiesId") Long propertiesId){
+    return agentService.deleteAgentProperties(agentId, propertiesId);
+}
 }
