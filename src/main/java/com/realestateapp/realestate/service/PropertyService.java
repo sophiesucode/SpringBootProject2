@@ -70,6 +70,7 @@ public class PropertyService {
             updateProperties.setHasBackyard(propertiesObject.getHasBackyard());
             updateProperties.setHasGarage(propertiesObject.getHasGarage());
             updateProperties.setProperty_status(propertiesObject.getProperty_status());
+
                 //be able to set agent/assign agent
 
 //
@@ -77,7 +78,7 @@ public class PropertyService {
 
 //
 //            updateProperties.setId(propertiesObject.getId());
-//            updateProperties.setAgent(propertiesObject.getAgent());
+            updateProperties.setAgent(propertiesObject.getAgent());
             return propertyRepository.save(updateProperties);
         }else{
             throw new InformationNotFoundException("property with id " + propertiesId + " not found");

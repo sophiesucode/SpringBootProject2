@@ -3,6 +3,7 @@ package com.realestateapp.realestate.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 @Table(name = "real_estate_properties")
@@ -244,5 +245,9 @@ public class Properties {
 
     public void setRealEstateOffice(RealEstateOffice realEstateOffice) {
         this.realEstateOffice = realEstateOffice;
+    }
+
+    public Optional<Object> stream() {
+        return stream();
     }
 }

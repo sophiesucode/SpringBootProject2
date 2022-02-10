@@ -6,6 +6,8 @@ import org.hibernate.annotations.LazyCollectionOption;
 import javax.persistence.*;
 import java.util.List;
 
+//company can add more offices/branches under company if they choose to open more in future/present
+
 @Entity
 @Table(name= "real_estate_company")
 public class RealEstateOffice {
@@ -90,9 +92,21 @@ public class RealEstateOffice {
     }
 
 
+    public List<Agent> getAgentList() {
+        return agentList;
+    }
+
+    public void setAgentList(List<Agent> agentList) {
+        this.agentList = agentList;
+    }
+
     @OneToMany(mappedBy = "realEstateOffice", orphanRemoval = true)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Properties> propertiesList;
+
+    @OneToMany(mappedBy = "realEstateOffice", orphanRemoval = true)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Agent> agentList;
 
     public List<Properties> getPropertiesList() {
         return propertiesList;
