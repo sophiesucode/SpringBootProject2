@@ -11,7 +11,9 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
 
     Properties getPropertiesByIdAndAgent_Id(Long propertiesId , Long agentId);
 
+    Properties getPropertiesByRealEstateOfficeId(Long officeId);
 //    Properties findPropertiesByIdAndAgent();
+    Properties getPropertiesById(Long propertiesId);
 
 //    Properties findPropertiesByProperty_type(String property_type); whats wrong with this line?
 
