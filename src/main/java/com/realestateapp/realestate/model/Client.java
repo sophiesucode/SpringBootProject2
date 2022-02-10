@@ -2,7 +2,7 @@ package com.realestateapp.realestate.model;
 
 
 import javax.persistence.*;
-
+//data for client contact form
 @Entity
 @Table(name="clients")
 public class Client {

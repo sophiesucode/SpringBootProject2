@@ -25,6 +25,12 @@ public class Agent {
     private List<Properties> propertiesList;
     //    private List<Properties> properties;
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "office_id")
+    private RealEstateOffice realEstateOffice;
+
+
 
 
 //    @Column

@@ -21,63 +21,63 @@ public class AgentService {
     private AgentRepository agentRepository; //inject repository
 
     @Autowired //autowire repository to constructor
-    public void setAgentRepository(AgentRepository agentRepository){
+    public void setAgentRepository(AgentRepository agentRepository) {
         this.agentRepository = agentRepository;
     }
 
     private PropertyRepository propertyRepository;
 
     @Autowired
-    public void setPropertyRepository(PropertyRepository propertyRepository){
-        this.propertyRepository=propertyRepository;
+    public void setPropertyRepository(PropertyRepository propertyRepository) {
+        this.propertyRepository = propertyRepository;
     }
 
 
-    public List<Agent> getAllAgents(){
+    public List<Agent> getAllAgents() {
         return agentRepository.findAll();
     }
 
-    public Agent createAgent(Agent agentObject){
+    public Agent createAgent(Agent agentObject) {
 
         Agent agent = agentRepository.findAgentsByName(agentObject.getName());
-        if(agent != null) {
+        if (agent != null) {
             throw new InformationExistException("Agent with name " + agent.getName() + " already exists");
-        }else {
+        } else {
             return agentRepository.save(agentObject);
         }
     }
 
-    public Optional<Agent> getAgent(Long agentId){
+    public Optional<Agent> getAgent(Long agentId) {
 
         Optional<Agent> agent = agentRepository.findById(agentId);
-        if(agent.isPresent()){
+        if (agent.isPresent()) {
             return agent;
-        }else{
+        } else {
             throw new InformationNotFoundException("agent with Id " + agentId + " not found");
         }
     }
 
-    public Agent updateAgent(Long agentId, Agent agentObject){
+    public Agent updateAgent(Long agentId, Agent agentObject) {
 
-        Optional <Agent> agent = agentRepository.findById(agentId);
-        if(agent.isPresent()){
+        Optional<Agent> agent = agentRepository.findById(agentId);
+        if (agent.isPresent()) {
             Agent updateAgent = agentRepository.findById(agentId).get();
             updateAgent.setName(agentObject.getName());
             return agentRepository.save(updateAgent);
-        }else {
+        } else {
             throw new InformationNotFoundException("agent with id " + agentId + " not found");
         }
     }
 
-    public Optional<Agent> deleteAgent(Long agentId){
+    public Optional<Agent> deleteAgent(Long agentId) {
 
         Optional<Agent> agent = agentRepository.findById(agentId);
-        if(agent.isPresent()){
+        if (agent.isPresent()) {
             agentRepository.deleteById(agentId);
             return agent;
 
-        }else {
-            throw new InformationNotFoundException("agent with id " + agentId +" not found");
+        } else {
+            throw new InformationNotFoundException("agent with id " + agentId + " not found");
         }
     }
 
@@ -93,9 +93,9 @@ public class AgentService {
         }
     }
 
-////////////////// need to be able to assign an agent a property by id that already exists in the database
+    ////////////////// need to be able to assign an agent a property by id that already exists in the database
     //in the recipes app a new recipe was added directly to a category by creating the recipe but not this case
-    public List<Properties> getAgentProperties (Long agentId){
+    public List<Properties> getAgentProperties(Long agentId) {
         System.out.println("service calling getCategoryProperties ==>");
         Optional<Agent> agent = agentRepository.findById(agentId);
         if (agent.isPresent()) {
@@ -108,29 +108,40 @@ public class AgentService {
     }
 
     public Properties getPropertiesById(Long agentId, Long propertiesId) {
-    Agent agent = agentRepository.getById(agentId);
-    Properties properties = propertyRepository.getPropertiesByIdAndAgent_Id(propertiesId,agentId);
-    if(properties != null){
-        return properties;
-    } else {
-        throw new InformationNotFoundException("property with id " + propertiesId + " not found.");
-    }
+        Agent agent = agentRepository.getById(agentId);
+        Properties properties = propertyRepository.getPropertiesByIdAndAgent_Id(propertiesId, agentId);
+        if (properties != null) {
+            return properties;
+        } else {
+            throw new InformationNotFoundException("property with id " + propertiesId + " not found.");
+        }
     }
 
-//    public Properties deleteAgentProperties(Long agentId, Long propertiesId){
-//        Optional<Properties> optionalProperties = propertyRepository.getPropertiesByIdAndAgent_Id(propertiesId, propertiesId);
-//        Agent agent = agentRepository.getById(agentId);
-//        Properties properties = propertyRepository.getPropertiesByIdAndAgent_Id(propertiesId,agentId);
-//        if(properties != null){
-//            // i want to delete the property from just the agent Not permanently from the property table
-//            agentRepository.deleteById(propertiesId);
-//            return properties;
-//        } else {
-//        throw new InformationNotFoundException("property with id " + propertiesId +" not found");
+    // how do I delete only from the agents table and not permanently from the property table?(not in both places)
+    //how do i assign existing property to agent with out having to create a new property?
+    public Properties deleteAgentProperties(Long agentId, Long propertiesId) {
+        Agent agent = agentRepository.findById(agentId).get();
+        for (Properties properties : agent.getPropertiesList()) {
+            if (properties.getId() == propertiesId) {
+                // get the current property
+                Properties property = propertyRepository.getById(propertiesId);
+                // delete property belongs to the agent
+//                agent.getPropertiesList().remove(property);
+                property.setAgent(null);
+                propertyRepository.save(property);
+
+                agentRepository.save(agent);
+                return property;
+            }
+        }
+        throw new InformationNotFoundException("property with id " + propertiesId + " not found");
+    }
+
+//    public List <Agent>  findAgentsByOffice(Long officeId){
+//        return agentRepository.findAgentsByRealEstateOffice(officeId);
+//
 //    }
-//}
-
-
 }
 
 
+// make company BRANCH and company id BRANCH ID
