@@ -89,14 +89,20 @@ repository interface for the real estate office itself.
 # Installation and Dependencies.
 --------------------------------------------
 I installed spring boot starter web dependencies in pom.xml
+
+<img src="images/dependencies.JPG">
+
 I also created a database called realestate in postgreSQL and connected it to spring boot by installing a starter package in pom.xml :
           <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
            </dependency>
-I also added data source specifications in application-dev.properties to connect the database in PostgreSql.
- <img src="">
+           
+           
+I also added data source specifications in application-dev.properties to connect the database in PostgreSql
+ 
+ <img src="images/devprop.JPG">
 
 
 
@@ -104,7 +110,7 @@ I also added data source specifications in application-dev.properties to connect
 -----------------------------------------
 
 There were a total of 24 API endpoints created in this project. 
-<img src="">
+<img src="images/endpointAPIs.JPG">
 
 
 #Challenges and Wins:
