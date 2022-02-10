@@ -2,6 +2,7 @@ package com.realestateapp.realestate.controller;
 
 
 import com.realestateapp.realestate.model.Agent;
+import com.realestateapp.realestate.model.Properties;
 import com.realestateapp.realestate.model.RealEstateOffice;
 
 import com.realestateapp.realestate.service.AgentService;
@@ -72,6 +73,18 @@ public class OfficeController {
             System.out.println("calling deleteOffice ==>");
             return officeService.deleteOffice(officeId);
         }
+
+//    @PostMapping("/office/{officeId}/properties/")  or @PostMapping("/office/properties/") assign all properties, not individually
+//    public Properties createOfficeProperties(@PathVariable(value = "officeId") Long officeId, @RequestBody Properties propertiesObject) {
+//        System.out.println("calling createOfficeProperties===>");
+//        return officeService.createOfficeProperties(officeId, propertiesObject);
+//    }
+//
+//    @GetMapping("/office/{officeId}/properties/") write logic in service //get all properties list
+//    public Optional getAllOfficeProperties(@PathVariable Long officeId) {
+//        System.out.println(("calling getAllOfficeProperties ==>"));
+//        return officeService.getOfficeProperties(officeId);
+//    }
 }
 
 
