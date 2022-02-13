@@ -116,4 +116,3 @@ public class RealEstateOffice {
         this.propertiesList = propertiesList;
     }
 }
-//associate propertyid table with officeid?

@@ -70,14 +70,6 @@ public class PropertyService {
             updateProperties.setHasBackyard(propertiesObject.getHasBackyard());
             updateProperties.setHasGarage(propertiesObject.getHasGarage());
             updateProperties.setProperty_status(propertiesObject.getProperty_status());
-
-                //be able to set agent/assign agent
-
-//
-//
-
-//
-//            updateProperties.setId(propertiesObject.getId());
             updateProperties.setAgent(propertiesObject.getAgent());
             return propertyRepository.save(updateProperties);
         }else{

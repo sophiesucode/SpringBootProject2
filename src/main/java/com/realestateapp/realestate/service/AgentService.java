@@ -82,7 +82,7 @@ public class AgentService {
     }
 
     public Properties createAgentProperties(Long agentId, Properties propertiesObject) {
-        //if problem with this , check last method/line in properties model
+
         System.out.println("service calling createAgentProperties ==>");
         try {
             Optional agent = agentRepository.findById(agentId);
@@ -93,8 +93,7 @@ public class AgentService {
         }
     }
 
-    ////////////////// need to be able to assign an agent a property by id that already exists in the database
-    //in the recipes app a new recipe was added directly to a category by creating the recipe but not this case
+
     public List<Properties> getAgentProperties(Long agentId) {
         System.out.println("service calling getCategoryProperties ==>");
         Optional<Agent> agent = agentRepository.findById(agentId);
@@ -117,8 +116,6 @@ public class AgentService {
         }
     }
 
-    // how do I delete only from the agents table and not permanently from the property table?(not in both places)
-    //how do i assign existing property to agent with out having to create a new property?
     public Properties deleteAgentProperties(Long agentId, Long propertiesId) {
         Agent agent = agentRepository.findById(agentId).get();
         for (Properties properties : agent.getPropertiesList()) {
@@ -126,7 +123,7 @@ public class AgentService {
                 // get the current property
                 Properties property = propertyRepository.getById(propertiesId);
                 // delete property belongs to the agent
-//                agent.getPropertiesList().remove(property);
+
                 property.setAgent(null);
                 propertyRepository.save(property);
 
@@ -137,11 +134,6 @@ public class AgentService {
         throw new InformationNotFoundException("property with id " + propertiesId + " not found");
     }
 
-//    public List <Agent>  findAgentsByOffice(Long officeId){
-//        return agentRepository.findAgentsByRealEstateOffice(officeId);
-//
-//    }
 }
 
 
-// make company BRANCH and company id BRANCH ID

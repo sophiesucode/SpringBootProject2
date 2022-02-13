@@ -10,13 +10,9 @@ import java.util.List;
 @Repository
 public interface AgentRepository extends JpaRepository<Agent, Long> {
 
-    //    Agent findById(agentId);
     Agent findAgentById(Long agentId);
 
-//    List<Agent> findAgentsByRealEstateOffice(Long officeId);
-List<Agent> getAllByRealEstateOffice(RealEstateOffice realEstateOffice);
+    List<Agent> getAllByRealEstateOffice(RealEstateOffice realEstateOffice);
     Agent findAgentsByName(String name);
-
-
 
 }

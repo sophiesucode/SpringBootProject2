@@ -23,7 +23,7 @@ public class Agent {
     @OneToMany(mappedBy = "agent", orphanRemoval = true)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Properties> propertiesList;
-    //    private List<Properties> properties;
+
 
     @JsonIgnore
     @ManyToOne
@@ -31,20 +31,6 @@ public class Agent {
     private RealEstateOffice realEstateOffice;
 
 
-
-
-//    @Column
-//    private String home_phone;
-//
-//    @Column
-//    private String email;
-
-
-
-    //add email address ?
-    //
-
-    //foreign key will be company id/office id(which office are they in)
 
     public Agent(){
 
