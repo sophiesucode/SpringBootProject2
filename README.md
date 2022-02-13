@@ -114,8 +114,8 @@ There were a total of 24 API endpoints created in this project.
 
 | Endpoints  | Functionality |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| POST /api/agents/  | Add new agent  |
+| GET /api/agents/  | Get all agents  |
 |               |               |
 |               |               |
 |               |               |
