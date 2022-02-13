@@ -112,55 +112,6 @@ I also added data source specifications in application-dev.properties to connect
 There were a total of 24 API endpoints created in this project. 
 <img src="images/endpointAPIs.JPG">
 
-| Endpoints  | Functionality |
-| ------------- | ------------- |
-| POST /api/agents/  | Add new agent  |
-| GET /api/agents/  | Get all agents  |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-
-
-
-
-| Endpoints  | Functionality |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-
-| Endpoints  | Functionality |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-
-
-
-| Endpoints  | Functionality |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-
 
 
 
